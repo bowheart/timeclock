@@ -1,0 +1,65 @@
+@mixin adjacent($width) {
+	display: inline-block;
+	vertical-align: middle;
+	width: #{$width * 100%};
+}
+
+
+@mixin button($bg: map-get($colors, secondary), $color: #fff, $includeHover: true) {
+	background: $bg;
+	border: none;
+	color: $color;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 13rem;
+	height: 32rem;
+	line-height: 32rem;
+	padding: 0 20rem;
+	vertical-align: middle;
+	
+	@if $includeHover {
+		&:hover {
+			background: darken($bg, 8%);
+		}
+	}
+}
+
+
+@mixin dynamic-container() {
+	display: block;
+	margin: auto;
+	max-width: 1200rem;
+	width: 100%;
+}
+
+
+@mixin table-column() {
+	padding: 10rem 16rem;
+	
+	&:nth-of-type(n + 2) {
+		border-left: 1px solid rgba(#000, 0.2);
+	}
+}
+
+
+@mixin table() {
+	border-collapse: collapse;
+	margin-top: 30rem;
+	width: 100%;
+	
+	&__column-header {
+		background: map-get($colors, main);
+		color: #fff;
+		padding: 8rem 0;
+	}
+	
+	&__column {
+		@include table-column();
+		
+		&--empty {
+			@include table-column();
+			background: map-get($colors, light-shade);
+			text-align: center;
+		}
+	}
+}

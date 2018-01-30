@@ -1,0 +1,28 @@
+@import '../config';
+
+
+.throbber {
+	color: map-get($colors, main);
+	padding: 10rem;
+	text-align: center;
+	
+	&__text {
+		font-size: 18rem;
+	}
+	
+	&__animation {
+		padding: 10rem;
+		text-align: center;
+		
+		&::after {
+			animation: throbber 1.4s infinite linear; -webkit-animation: throbber 1s infinite linear;
+			border-bottom: 3px solid;
+			border-radius: 50rem;
+			content: '';
+			display: inline-block;
+			height: 50rem;
+			transform: rotate(0); -webkit-transform: rotate(0);
+			width: 50rem;
+		}
+	}
+}

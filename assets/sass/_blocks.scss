@@ -1,0 +1,213 @@
+@import './config';
+
+
+@import './blocks/form';
+@import './blocks/header';
+@import './blocks/nav';
+@import './blocks/task-list';
+@import './blocks/sheet';
+@import './blocks/throbber';
+
+
+// All blocks begin their life here.
+// When they start getting big (> 20 lines) move them to their own file
+// inside './blocks' and import them here.
+
+
+.btn {
+	@include button(#fff, map-get($colors, main), false);
+	border: 1px solid;
+
+	&:hover {
+		color: map-get($colors, secondary);
+	}
+
+	&--danger {
+		@include button(map-get($colors, danger));
+	}
+
+	&--info {
+		@include button(map-get($colors, secondary));
+	}
+
+	&--success {
+		@include button(map-get($colors, main));
+	}
+}
+
+
+@mixin buttonGroupButton() {
+	padding: 0 12rem;
+	vertical-align: middle;
+
+	&:first-of-type {
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	&:last-of-type {
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px
+	}
+	&:nth-of-type(n + 2) {
+		border-left: 1px solid rgba(#000, 0.2);
+	}
+}
+
+.btn-group {
+	&__btn {
+		@include button(#fff, map-get($colors, main), false);
+		@include buttonGroupButton();
+		border-top: 1px solid;
+		border-bottom: 1px solid;
+
+		&:hover {
+			color: map-get($colors, secondary);
+		}
+
+		&:first-of-type {
+			border-left: 1px solid;
+		}
+		&:last-of-type {
+			border-right: 1px solid;
+		}
+
+		&--danger {
+			@include button(map-get($colors, danger));
+			@include buttonGroupButton();
+		}
+
+		&--info {
+			@include button();
+			@include buttonGroupButton();
+		}
+
+		&--success {
+			@include button(map-get($colors, main));
+			@include buttonGroupButton();
+		}
+	}
+}
+
+
+.main {
+	@include dynamic-container();
+	background: #fff;
+	border-right: $layoutBorder;
+	border-left: $layoutBorder;
+	min-height: calc(100vh - #{$headerHeight} - #{$navHeight});
+	padding: 20rem 15rem;
+}
+
+
+
+.page {
+	&__header {
+		font-size: 60rem;
+		text-align: center;
+	}
+
+	&__subheader {
+		font-size: 18rem;
+		letter-spacing: 1px;
+		margin-bottom: 40rem;
+		text-align: center;
+	}
+}
+
+
+
+.task-breakdown--list {
+	padding: 25rem 0 10rem;
+
+	&__item:nth-of-type(n + 2) {
+		margin-top: 15rem;
+	}
+
+	&__key {
+		@include adjacent(2/3);
+	}
+
+	&__value {
+		@include adjacent(1/3);
+		text-align: right;
+	}
+}
+
+
+
+.tasks-breakdown {
+	@include table();
+
+	&__row:nth-of-type(odd) {
+		background: map-get($colors, light-shade);
+	}
+
+	&__range {
+		font-size: 11rem;
+		margin-left: 10rem;
+	}
+}
+
+
+
+.task-delete {
+	margin-top: 40rem;
+	text-align: center;
+}
+
+
+
+.task-description {
+	text-transform: lowercase;
+}
+
+
+
+.task-name {
+	text-transform: uppercase;
+}
+
+
+
+.text-center {
+	text-align: center;
+}
+
+
+
+.throbber-overlay {
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	z-index: 45;
+
+	&::before {
+		background: rgba(#000, 0.3);
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+	}
+
+	&::after {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	&__box {
+		background: #fff;
+		display: inline-block;
+		max-width: 100%;
+		padding: 25rem;
+		position: relative;
+		vertical-align: middle;
+		width: 400px;
+	}
+}

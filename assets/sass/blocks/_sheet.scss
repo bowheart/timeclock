@@ -1,0 +1,10 @@
+@import '../config';
+
+
+.sheet {
+	@include table();
+	
+	&__entry--highlight {
+		background: map-get($colors, light-shade);
+	}
+}

@@ -1,0 +1,58 @@
+@import './config';
+
+$transparentMain: transparentize(map-get($colors, main), 0.3);
+
+
+html {
+	font-size: 1px;
+	
+	@media (max-width: 1200px) {
+		font-size: 0.95px;
+	}
+	@media (max-width: 1000px) {
+		font-size: 0.9px;
+	}
+	@media (max-width: 800px) {
+		font-size: 0.85px;
+	}
+	@media (max-width: 600px) {
+		font-size: 0.8px;
+	}
+	@media (max-width: 400px) {
+		font-size: 0.75px;
+	}
+}
+
+body {
+	background: url(http://cdn.pcwallart.com/images/ocean-water-background-wallpaper-4.jpg) no-repeat fixed;//repeating-linear-gradient(135deg, #fff, #fff 7px, $transparentMain 8px, #fff 9px, #fff 20px);
+	background-size: cover;
+	color: #555;
+	font-family: arial, sans-serif;
+	font-size: 14rem;
+	line-height: 1.4;
+	margin: 0;
+	overflow-y: scroll;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+
+// Global Element Styles
+
+a {
+	color: map-get($colors, main);
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	margin: .2em 0 .1em;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}

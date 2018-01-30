@@ -1,0 +1,53 @@
+@import '../config';
+
+
+.header {
+	background: map-get($colors, main);
+	color: #fff;
+	
+	&__logo {
+		@include adjacent(1 / 2);
+		font-size: 20rem;
+		line-height: $headerHeight;
+		padding-left: 20rem;
+	}
+	
+	&__current-task {
+		@include adjacent(1 / 2);
+		text-align: right;
+	}
+	
+	&__no-task {
+		padding-right: 20rem;
+	}
+	
+	&__task-name {
+		color: #fff;
+		display: inline-block;
+		font-size: 25rem;
+		line-height: $headerHeight;
+		vertical-align: middle;
+		
+		&:hover {
+			text-shadow: 4px 4px 0px rgba(#000, 0.3)
+		}
+	}
+	
+	&__task-timer {
+		display: inline-block;
+		font-size: 16rem;
+		line-height: $headerHeight;
+		margin-left: 20rem;
+		vertical-align: middle;
+	}
+	
+	&__clock-out-btn {
+		@include button();
+		height: auto;
+		line-height: $headerHeight;
+		margin-left: 20rem;
+		padding-top: 0;
+		padding-bottom: 0;
+		vertical-align: middle;
+	}
+}

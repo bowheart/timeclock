@@ -1,0 +1,34 @@
+@import '../config';
+
+
+.nav {
+	background: #fff;
+	border-bottom: $layoutBorder;
+	height: $navHeight;
+	text-align: center;
+}
+
+.nav__item {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.nav__link {
+	display: inline-block;
+	line-height: $navHeight;
+	padding: 0 20rem;
+	
+	&:hover {
+		background: map-get($colors, secondary);
+		color: #fff;
+	}
+	
+	&--active {
+		background: map-get($colors, main);
+		color: #fff;
+		
+		&:hover {
+			background: map-get($colors, main);
+		}
+	}
+}

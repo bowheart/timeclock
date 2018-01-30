@@ -1,0 +1,73 @@
+@import '../config';
+
+@mixin task-list__task__btn() {
+	@include button();
+	height: 40rem;
+	line-height: 40rem;
+	padding: 0;
+	position: absolute;
+	top: -40rem;
+	text-align: center;
+	width: 40rem;
+}
+
+
+
+.task-list {
+	margin-top: 30rem;
+	
+	&__task {
+		@include adjacent(1 / 3);
+		padding: 15rem;
+		
+		&__box {
+			border: 2px solid map-get($colors, secondary);
+			box-shadow: 5px 5px 3px 0px rgba(#000, 0.2);
+			height: 400rem;
+			overflow: hidden;
+			padding: 15rem;
+			position: relative;
+			
+			&:hover {
+				.task-list__task__view-btn {
+					top: 0;
+					left: 0;
+					transition: top .1s, left .1s;
+				}
+				
+				.task-list__task__edit-btn {
+					top: 0;
+					right: 0;
+					transition: top .1s, right .1s;
+				}
+			}
+		}
+		
+		&__view-btn {
+			@include task-list__task__btn();
+			left: -40rem;
+			transition: top .1s .8s, left .1s .8s;
+		}
+		
+		&__edit-btn {
+			@include task-list__task__btn();
+			right: -40rem;
+			transition: top .1s .8s, right .1s .8s;
+		}
+		
+		&__name {
+			font-size: 24rem;
+			text-align: center;
+		}
+		
+		&__description {
+			font-size: 15rem;
+			text-align: center;
+		}
+		
+		&__clock-toggle {
+			margin: 15rem 0;
+			text-align: center;
+		}
+	}
+}

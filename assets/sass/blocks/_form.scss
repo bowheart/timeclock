@@ -1,0 +1,27 @@
+.form {
+	&__btn {
+		padding-top: 20rem;
+		text-align: center;
+	}
+	
+	&__group {
+		padding: 8rem 0;
+	}
+	
+	&__label {
+		@include adjacent(1 / 4);
+		cursor: pointer;
+		padding-left: 7%;
+	}
+	
+	&__control-wrapper {
+		@include adjacent(3 / 4);
+	}
+	
+	&__control {
+		border: 1px solid #aaa;
+		height: 32rem;
+		padding-left: 8rem;
+		width: 100%;
+	}
+}
