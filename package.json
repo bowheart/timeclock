@@ -1,7 +1,7 @@
 {
   "name": "timeclock",
   "version": "0.1.0",
-  "description": "an easy, configurable timeclock for multi-tasking and timesheet analysis",
+  "description": "An easy, configurable timeclock for multi-tasking and timesheet analysis",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
